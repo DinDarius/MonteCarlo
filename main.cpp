@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
+
 double sixhump (double * x)
 {
     double f = (4-2.1*pow(x[0],3.0)+pow(x[0],4.0)/3)*pow(x[0],2.0)+x[0]*x[1]+(-4+4*pow(x[1],2.0))*pow(x[1],2.0); //pow - kelimas laipsniu. pvz x kvadratu = pow (x , 2.0)
@@ -40,5 +41,15 @@ int main()
      cout << ")" <<endl;
      cout <<"Six hump funkcijos reiksme "<< sixhump(&vektorius[0]) <<endl;
 
+     double min=0;
+     for (int i; i<100; i++)
+     {
+         vektorius[i] = rand() * (virsutinis_rezis - apatinis_rezis) / RAND_MAX + apatinis_rezis;
+         if (sixhump(&vektorius[0]) < min) {min = sixhump(&vektorius[0]); }
+     }
+     cout << "maziausias = " << min ;
+
+
     return 0;
 }
+
