@@ -1,5 +1,12 @@
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
+double sixhump (double * x)
+{
+    double f = (4-2.1*pow(x[0],3.0)+pow(x[0],4.0)/3)*pow(x[0],2.0)+x[0]*x[1]+(-4+4*pow(x[1],2.0))*pow(x[1],2.0); //pow - kelimas laipsniu. pvz x kvadratu = pow (x , 2.0)
+    return f;
+}
+
 
 using namespace std;
 
@@ -30,7 +37,8 @@ int main()
         vektorius[i] = rand() * (virsutinis_rezis - apatinis_rezis) / RAND_MAX + apatinis_rezis;
         cout << vektorius[i] << "  "; // Vektoriaus isvedimas i ekrana
     }
-     cout << ")" ;
+     cout << ")" <<endl;
+     cout <<"Six hump funkcijos reiksme "<< sixhump(&vektorius[0]) <<endl;
 
     return 0;
 }
